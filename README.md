@@ -15,17 +15,17 @@
 ## Installation
 
 ```bash
-npm install print-me
+npm install ink-html
 ```
 or
 ```bash
-yarn add print-me
+yarn add ink-html
 ```
 
 ## Usage
 
 ```javascript
-import print from ink-html'
+import print from 'ink-html'
 // const print = require('ink-html').default
 
 // js
