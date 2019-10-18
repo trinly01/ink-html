@@ -1,0 +1,38 @@
+{
+  "name": "ink-html",
+  "version": "1.0.0",
+  "description": "Prints a specific area/element of your html page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trinly01/ink-html.git"
+  },
+  "keywords": [
+    "print",
+    "html",
+    "element",
+    "div",
+    "area",
+    "pdf",
+    "javascript",
+    "css",
+    "print-html",
+    "print-html-element",
+    "html-element-print",
+    "ngx-print",
+    "vue-html-to-paper",
+    "vue",
+    "angular",
+    "react",
+    "react-to-print"
+  ],
+  "author": "Trinmar A Boado <timi.boado@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trinly01/ink-html/issues"
+  },
+  "homepage": "https://github.com/trinly01/ink-html#readme"
+}
