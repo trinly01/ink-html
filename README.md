@@ -12,10 +12,6 @@
  - [x] CSS @media print
  - [x] Popup [Options](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#Window_features)
 
-> **Join and support our Community** <br />
-> Web and Mobile Developers PH <br />
-> [ [Facebook Page](https://fb.com/webmobile.ph) | [Group](https://fb.com/groups/webmobile.ph/) ]
-
 ## Installation
 
 ```bash
@@ -37,6 +33,10 @@ print(window.querySelector('#printable'))
 // Vue.js
 print(this.$refs.printable.$el)
 ```
+
+> **Join and support our Community** <br />
+> Web and Mobile Developers PH <br />
+> [ [Facebook Page](https://fb.com/webmobile.ph) | [Group](https://fb.com/groups/webmobile.ph/) ]
 
 # *Join and support our Community* <br /> **Web and Mobile Developers PH** <br/> [ [Facebook Page](https://fb.com/webmobile.ph) | [Group](https://fb.com/groups/webmobile.ph/) ]
 
