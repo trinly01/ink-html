@@ -25,7 +25,7 @@ function createHTML(head, body) {
   <head>${head}/head>
     <body>${body}
       <script>
-        setTimeout(function(){ 
+      setTimeout(()=>{ 
           window.print()
           window.close()
         }, 500)
@@ -34,7 +34,7 @@ function createHTML(head, body) {
   </html>`;
 }
 
-function print(prtHtml) {
+function print(prtHtml, options) {
   const WinPrint = window.open('', '', options)
   WinPrint.document.write(createHTML(document.head.innerHTML, prtHtml))
   WinPrint.document.close();
@@ -42,9 +42,8 @@ function print(prtHtml) {
 }
 
 export default function (elem, options) {
-  options = options ||
-    'menubar=no, toolbar=no, location=no, status=no, scrollbars=no, resizable=no, dependent, fullscreen=yes' +
-    ', width=' + screen.availWidth + ', height=' + screen.availHeight
+  const defaultOptions = `menubar=no,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,dependent,fullscreen=yes,width=${screen.availWidth},height=${screen.availHeight}`;
+  options = options || defaultOptions;
 
   // Map elements
   let inputElement = mapInputElements(elem);
@@ -52,5 +51,5 @@ export default function (elem, options) {
   let selectElement = mapSelectElements(elem);
 
   // Get HTML to print from element
-  print(elem.innerHTML);
+  print(elem.innerHTML, options);
 }
