@@ -20,27 +20,23 @@ function mapSelectElements(pageElement) {
   return mapElement(pageElement, "select", (el) => el.map(mapSelectedElement));
 }
 
-function print(prtHtml) {
-  const WinPrint = window.open('', '', options)
-  WinPrint.document.write(`<!DOCTYPE html>
-  <html>
-    <head>
-      ${document.head.innerHTML}
-      <style>
-      </style>
-    </head>
-    <body>
-      ${prtHtml}
+function createHTML(head, body) {
+  return `<!DOCTYPE html><html>
+  <head>${head}/head>
+    <body>${body}
       <script>
-        // self executing function here
         setTimeout(function(){ 
           window.print()
           window.close()
         }, 500)
       </script>
     </body>
-  </html>`)
+  </html>`;
+}
 
+function print(prtHtml) {
+  const WinPrint = window.open('', '', options)
+  WinPrint.document.write(createHTML(document.head.innerHTML, prtHtml))
   WinPrint.document.close();
   WinPrint.focus();
 }
