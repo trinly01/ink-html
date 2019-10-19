@@ -1,6 +1,5 @@
 function mapElement(pageElement, elementName, callback) {
-  const element = Array.prototype.slice.call(pageElement.querySelectorAll(elementName));
-  return element.map(callback);
+  return Array.prototype.slice.call(pageElement.querySelectorAll(elementName)).map(callback);
 }
 
 function mapInputElements(pageElement) {
@@ -46,9 +45,9 @@ export default function (elem, options) {
   options = options || defaultOptions;
 
   // Map elements
-  let inputElement = mapInputElements(elem);
-  let textareaElement = mapTextareaElements(elem);
-  let selectElement = mapSelectElements(elem);
+  const inputElement = mapInputElements(elem);
+  const textareaElement = mapTextareaElements(elem);
+  const selectElement = mapSelectElements(elem);
 
   // Get HTML to print from element
   print(elem.innerHTML, options);
