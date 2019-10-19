@@ -4,7 +4,6 @@ export default function (elem, options) {
     ', width=' + screen.availWidth + ', height=' + screen.availHeight
   var pageElement = elem
   var inputElements = Array.prototype.slice.call(pageElement.querySelectorAll('input'))
-  console.log(inputElements)
   inputElements.map(function (el) {
     if (['checkbox', 'radio'].includes(el.type) && el.checked) {
       el.setAttribute('checked', '')
@@ -26,14 +25,7 @@ export default function (elem, options) {
   // Get HTML to print from element
   const prtHtml = elem.innerHTML
 
-  // Get all stylesheets HTML
-  // let stylesHtml = ''
-  // for (const node of [...document.querySelectorAll('link[rel="stylesheet"], style')]) {
-  //   stylesHtml += node.outerHTML
-  // }
-
   // Open the print window
-  console.log(document.head)
   const WinPrint = window.open('', '', options)
   WinPrint.document.write(`<!DOCTYPE html>
   <html>
@@ -56,10 +48,4 @@ export default function (elem, options) {
 
   WinPrint.document.close()
   WinPrint.focus()
-  // console.log(WinPrint.document.styleSheets)
-  // WinPrint.document.ready(() => {
-  //   WinPrint.print()
-  //   WinPrint.close()
-  // })
-  // WinPrint.document.head = document.head
 }
