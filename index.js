@@ -1,31 +1,31 @@
-export default function (elem, options) {
-  options = options ||
-    'menubar=no, toolbar=no, location=no, status=no, scrollbars=no, resizable=no, dependent, fullscreen=yes' +
-    ', width=' + screen.availWidth + ', height=' + screen.availHeight
-  let pageElement = elem
-  let inputElements = Array.prototype.slice.call(pageElement.querySelectorAll('input'))
-  inputElements.map(function (el) {
+function mapElement(pageElement, callback) {
+  const element = Array.prototype.slice.call(pageElement.querySelectorAll('textarea'));
+  return element.map(callback);
+}
+
+function mapInputElements(pageElement) {
+  return mapElement(pageElement, (el) => {
     if (['checkbox', 'radio'].includes(el.type) && el.checked) {
       el.setAttribute('checked', '')
     } else {
       el.setAttribute('value', el.value)
     }
-  })
-  let textareaElements = Array.prototype.slice.call(pageElement.querySelectorAll('textarea'))
-  textareaElements.map(function (el) {
-    el.innerHTML = el.value
-  })
-  let selectElements = Array.prototype.slice.call(pageElement.querySelectorAll('select'))
-  selectElements.map(function (el) {
+  });
+}
+
+function mapTextareaElements(pageElement) {
+  return mapElement(pageElement, (el) => el.innerHTML = el.value);
+}
+
+function mapSelectElements(pageElement) {
+  return mapElement(pageElement, (el) => {
     el.map(op => {
       if (op.selected) op.setAttribute('selected', 'selected')
     })
-  })
+  });
+}
 
-  // Get HTML to print from element
-  const prtHtml = elem.innerHTML
-
-  // Open the print window
+function print(prtHtml) {
   const WinPrint = window.open('', '', options)
   WinPrint.document.write(`<!DOCTYPE html>
   <html>
@@ -46,6 +46,20 @@ export default function (elem, options) {
     </body>
   </html>`)
 
-  WinPrint.document.close()
-  WinPrint.focus()
+  WinPrint.document.close();
+  WinPrint.focus();
+}
+
+export default function (elem, options) {
+  options = options ||
+    'menubar=no, toolbar=no, location=no, status=no, scrollbars=no, resizable=no, dependent, fullscreen=yes' +
+    ', width=' + screen.availWidth + ', height=' + screen.availHeight
+
+  // Map elements
+  let inputElement = mapInputElements(elem);
+  let textareaElement = mapTextareaElements(elem);
+  let selectElement = mapSelectElements(elem);
+
+  // Get HTML to print from element
+  print(elem.innerHTML);
 }
