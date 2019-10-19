@@ -4,25 +4,20 @@ function mapElement(pageElement, elementName, callback) {
 }
 
 function mapInputElements(pageElement) {
-  return mapElement(pageElement, "input", (el) => {
-    if (['checkbox', 'radio'].includes(el.type) && el.checked) {
-      el.setAttribute('checked', '')
-    } else {
-      el.setAttribute('value', el.value)
-    }
-  });
+  const isInputElement = (el) => ['checkbox', 'radio'].includes(el.type) && el.checked;
+  return mapElement(pageElement, "input", (el) => isInputElement() ? el.setAttribute('checked', '') : el.setAttribute('value', el.value));
 }
 
 function mapTextareaElements(pageElement) {
   return mapElement(pageElement, "textarea", (el) => el.innerHTML = el.value);
 }
 
+function mapSelectedElement(element) {
+  if (element.selected) element.setAttribute('selected', 'selected');
+}
+
 function mapSelectElements(pageElement) {
-  return mapElement(pageElement, "select", (el) => {
-    el.map(op => {
-      if (op.selected) op.setAttribute('selected', 'selected')
-    })
-  });
+  return mapElement(pageElement, "select", (el) => el.map(mapSelectedElement));
 }
 
 function print(prtHtml) {
