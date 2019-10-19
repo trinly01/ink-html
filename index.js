@@ -5,7 +5,7 @@ function mapElement(pageElement, elementName, callback) {
 
 function mapInputElements(pageElement) {
   const isInputElement = (el) => ['checkbox', 'radio'].includes(el.type) && el.checked;
-  return mapElement(pageElement, "input", (el) => isInputElement() ? el.setAttribute('checked', '') : el.setAttribute('value', el.value));
+  return mapElement(pageElement, "input", (el) => isInputElement(el) ? el.setAttribute('checked', '') : el.setAttribute('value', el.value));
 }
 
 function mapTextareaElements(pageElement) {
