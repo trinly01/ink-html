@@ -2,8 +2,8 @@ export default function (elem, options) {
   options = options ||
     'menubar=no, toolbar=no, location=no, status=no, scrollbars=no, resizable=no, dependent, fullscreen=yes' +
     ', width=' + screen.availWidth + ', height=' + screen.availHeight
-  var pageElement = elem
-  var inputElements = Array.prototype.slice.call(pageElement.querySelectorAll('input'))
+  let pageElement = elem
+  let inputElements = Array.prototype.slice.call(pageElement.querySelectorAll('input'))
   inputElements.map(function (el) {
     if (['checkbox', 'radio'].includes(el.type) && el.checked) {
       el.setAttribute('checked', '')
@@ -11,11 +11,11 @@ export default function (elem, options) {
       el.setAttribute('value', el.value)
     }
   })
-  var textareaElements = Array.prototype.slice.call(pageElement.querySelectorAll('textarea'))
+  let textareaElements = Array.prototype.slice.call(pageElement.querySelectorAll('textarea'))
   textareaElements.map(function (el) {
     el.innerHTML = el.value
   })
-  var selectElements = Array.prototype.slice.call(pageElement.querySelectorAll('select'))
+  let selectElements = Array.prototype.slice.call(pageElement.querySelectorAll('select'))
   selectElements.map(function (el) {
     el.map(op => {
       if (op.selected) op.setAttribute('selected', 'selected')
