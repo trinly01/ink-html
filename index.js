@@ -40,15 +40,12 @@ function print(prtHtml, options) {
   WinPrint.focus();
 }
 
-export default function (elem, options) {
+export default function (element, options) {
   const defaultOptions = `menubar=no,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,dependent,fullscreen=yes,width=${screen.availWidth},height=${screen.availHeight}`;
   options = options || defaultOptions;
 
-  // Map elements
-  const inputElement = mapInputElements(elem);
-  const textareaElement = mapTextareaElements(elem);
-  const selectElement = mapSelectElements(elem);
+  const mapElements = (el, type) => type === "input" ? mapInputElements(el) : (type === "textarea" ? mapTextareaElements(el) : mapSelectElements(el));
+  const mappedElements = ["input", "textarea", "select"].map((type) => mapElements(element, type));
 
-  // Get HTML to print from element
-  print(elem.innerHTML, options);
+  print(element.innerHTML, options);
 }
