@@ -1,10 +1,10 @@
-function mapElement(pageElement, callback) {
-  const element = Array.prototype.slice.call(pageElement.querySelectorAll('textarea'));
+function mapElement(pageElement, elementName, callback) {
+  const element = Array.prototype.slice.call(pageElement.querySelectorAll(elementName));
   return element.map(callback);
 }
 
 function mapInputElements(pageElement) {
-  return mapElement(pageElement, (el) => {
+  return mapElement(pageElement, "input", (el) => {
     if (['checkbox', 'radio'].includes(el.type) && el.checked) {
       el.setAttribute('checked', '')
     } else {
@@ -14,11 +14,11 @@ function mapInputElements(pageElement) {
 }
 
 function mapTextareaElements(pageElement) {
-  return mapElement(pageElement, (el) => el.innerHTML = el.value);
+  return mapElement(pageElement, "textarea", (el) => el.innerHTML = el.value);
 }
 
 function mapSelectElements(pageElement) {
-  return mapElement(pageElement, (el) => {
+  return mapElement(pageElement, "select", (el) => {
     el.map(op => {
       if (op.selected) op.setAttribute('selected', 'selected')
     })
