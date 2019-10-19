@@ -8,16 +8,18 @@
 
 **Prints a specific area/element of your html page** for any frontend framework
 
- - [x] Form Input Values
- - [x] CSS @media print
- - [x] Popup [Options](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#Window_features)
+- [x] Form Input Values
+- [x] CSS @media print
+- [x] Popup [Options](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#Window_features)
 
 ## Installation
 
 ```bash
 npm install ink-html
 ```
+
 or
+
 ```bash
 yarn add ink-html
 ```
@@ -25,18 +27,13 @@ yarn add ink-html
 ## Usage
 
 ```javascript
-import print from 'ink-html'
+import print from "ink-html";
 // const print = require('ink-html').default
 
 // js
-print(window.querySelector('#printable'))
+print(window.querySelector("#printable"));
 // Vue.js
-print(this.$refs.printable.$el)
+print(this.$refs.printable.$el);
 ```
 
-> **Join and support our Community** <br />
-> Web and Mobile Developers PH <br />
-> [ [Facebook Page](https://fb.com/webmobile.ph) | [Group](https://fb.com/groups/webmobile.ph/) ]
-
-# *Join and support our Community* <br /> **Web and Mobile Developers PH** <br/> [ [Facebook Page](https://fb.com/webmobile.ph) | [Group](https://fb.com/groups/webmobile.ph/) ]
-
+# _Join and support our Community_ <br /> **Web and Mobile Developers PH** <br/> [ [Facebook Page](https://fb.com/webmobile.ph) | [Group](https://fb.com/groups/webmobile.ph/) ]
