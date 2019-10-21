@@ -2,9 +2,10 @@
   "name": "ink-html",
   "version": "1.0.0",
   "description": "Prints a specific area/element of your html page",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -34,5 +35,11 @@
   "bugs": {
     "url": "https://github.com/trinly01/ink-html/issues"
   },
-  "homepage": "https://github.com/trinly01/ink-html#readme"
+  "homepage": "https://github.com/trinly01/ink-html#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  }
 }
