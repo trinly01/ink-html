@@ -22,11 +22,16 @@ or
 yarn add ink-html
 ```
 
+## CDN
+```html
+  <script src="https://unpkg.com/ink-html/dist/index.js"></script>
+```
+
 ## Usage
 
 ```javascript
 import print from 'ink-html'
-// const print = require('ink-html').default
+// const print = inkHtml // for CDN
 
 // js
 print(window.querySelector('#printable'))

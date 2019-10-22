@@ -6,7 +6,8 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     filename: 'index.js',
-    libraryTarget: 'commonjs2',
+    library: 'inkHtml',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [

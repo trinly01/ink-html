@@ -1,6 +1,6 @@
 {
   "name": "ink-html",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Prints a specific area/element of your html page",
   "main": "dist/index.js",
   "scripts": {
